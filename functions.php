@@ -23,17 +23,3 @@ function aquila_get_theme_instance(){
 
 aquila_get_theme_instance();
 
-/**
- * Proper way to enqueue scripts and styles
- */
-function aquila_enqueue_scripts() {
-
-
-
-
-
-
-
-
-}
-add_action( 'wp_enqueue_scripts', 'aquila_enqueue_scripts' );
