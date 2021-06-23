@@ -7,9 +7,53 @@
 get_header();
 ?>
 
-<div class="content">
-Content
+<div id="primary">
+	<main id="main" class="site-main mt-5" role="main">
+		<?php 
+			if( have_posts() ) :
+		?>
+		<div class="container">
+			<?php
+				if ( is_home() && ! is_front_page() ) :	?>
+					<header class="mb-5">
+						<h1 class="page-title screen-reader-text">
+							<?php single_post_title(); ?>
+						</h1>
+					</header>
+			<?php endif; ?>
 
+			<div class="row">
+				<?php
+					$index = 0;
+					$no_of_columns = 3;
+
+				 while ( have_posts() ) : the_post();
+
+					if ( 0 === $index % $no_of_columns ) : ?>			 	
+						<div class="col-md-4 col-sm-6">
+							<?php endif; ?>
+
+
+				<?php get_template_part( 'template-parts/content' ); ?>
+						
+
+					<?php	$index ++;
+
+						if ( 0 !== $index && 0 === $index % $no_of_columns ) :
+							?>
+						</div>
+					<?php endif; ?>
+
+				<?php endwhile;?>	
+			</div> <!-- End Row -->
+		</div> <!-- End Container -->
+		<?php 
+			else: ?>
+				<div class="container">
+			<?php	get_template_part( 'template-parts/content-none' ); ?>
+				</div>
+			<?php endif; ?>
+	</main>
 </div>
 
 

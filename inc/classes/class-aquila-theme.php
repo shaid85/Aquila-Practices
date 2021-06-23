@@ -51,6 +51,10 @@ add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
 		] );
 
 		add_theme_support( 'post-thumbnails' );
+		/** 
+		 * Register custom image size
+		 */
+		add_image_size( 'feature-thumbnail', 350, 233, true );
 
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
